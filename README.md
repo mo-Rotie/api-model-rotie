@@ -1,12 +1,16 @@
-# PALOMADE ML API
-Team CH2-PS324 | Bangkit Capstone Project 2023
+# mo-Rotie ML API
+
+Team C241-PS264| Bangkit Capstone Project 2024
 
 ```markdown
 # Prerequisites
+
 Before running the application, make sure you have the following installed on your machine:
-- [Python 3](https://www.python.org/)
+
+- [Python](https://www.python.org/)
 
 # Tech We Use
+
 - Flask
 - Tensorflow
 ```
@@ -16,13 +20,13 @@ Before running the application, make sure you have the following installed on yo
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/CH2-PS324/palomade-ml-api.git
+   git clone https://github.com/mo-Rotie/api-model-rotie.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd palomade-ml-api
+   cd roti-api-ml
    ```
 
 3. Install the dependencies:
@@ -35,76 +39,58 @@ Before running the application, make sure you have the following installed on yo
 
 To start the Express.js server and run the database setup:
 
-```bash 
+```bash
 python main.js
 ```
 
 ## API Endpoints
 
-### 1.  Predict Sawit Bongkahan
+### 1. Connect to Model
 
 - **Method:** `POST`
-- **Path:** `/predict-bongkahan`
-- **Description:** endpoint for predict sawit bongkahan
+- **Path:** `/`
+- **Description:** endpoint for connect to model
+- **Response Body:**
+  ```json
+  {
+    "status": {
+      "code": 200,
+      "message": "Connected to mo-Rotie"
+    }
+  }
+  ```
+
+### 2. Predict mold on bread
+
+- **Method:** `POST`
+- **Path:** `/predict`
+- **Description:** endpoint for predict mold on bread
 - **Request Body (form-data):**
   ```form-data
     image = Image (*jpg/png/jpeg)
   ```
 - **Response Body:**
   ```json
-  {  
-      "status": {
-          "code": 200,
-          "data": {
-              "classType": "Bongkahan Sawit Matang",
-              "precentase": 100
-          },
-          "message": "Success predicting"
-      }
+  {
+    "status": {
+      "code": 200,
+      "data": {
+        "classType": "Roti Tidak Berjamur",
+        "percentage": 99
+      },
+      "message": "Success predicting"
+    }
   }
-  ``` 
+  ```
 - **Error Respone:**
-  
+
   Error Invalid Format File
-  ```json
-   {
-       "status": {
-           "code": 400,
-           "message": "Invalid file format. Please upload a JPG, JPEG, or PNG image."
-       }
-   }
-  ```
 
-### 2.  Predict Sawit Brondolan
-
-- **Method:** `POST`
-- **Path:** `/predict-brondolan`
-- **Description:** endpoint for predict sawit brondolan
-- **Request Body (form-data):**
-  ```form-data
-    image = Image (*jpg/png/jpeg)
-  ```
-- **Response Body:**
   ```json
-  {  
-      "status": {
-          "code": 200,
-          "data": {
-              "classType": "Brondolan Sawit Matang",
-              "precentase": 100
-          },
-          "message": "Success predicting"
-      }
+  {
+    "status": {
+      "code": 400,
+      "message": "Invalid file format. Please upload a JPG, JPEG, or PNG image."
+    }
   }
-  ``` 
-- **Error Respone:**
-  
-  Error Invalid Format File
-  ```json
-   {
-       "status": {
-           "code": 400,
-           "message": "Invalid file format. Please upload a JPG, JPEG, or PNG image."
-       }
-   }
   ```
