@@ -22,3 +22,4 @@ steps:
       - "--allow-unauthenticated"
 images:
   - "us-central1-docker.pkg.dev/$PROJECT_ID/rotie-artifact/rotie-image:$COMMIT_SHA"
+logsBucket: "gs://rotie-buckets/logs"
